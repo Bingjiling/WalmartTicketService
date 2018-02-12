@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+import com.lab.walmart.TicketService.service.TicketService;
+
 /**
  * 
  * SeatDAO to access the seat table in DB
@@ -18,7 +20,7 @@ public class SeatDAO {
 	 * time Here we use a priority queue to mimic the DB
 	 */
 
-	final private static PriorityQueue<Integer> seatTableIndex = new PriorityQueue<>(200);
+	final private static PriorityQueue<Integer> seatTableIndex = new PriorityQueue<>(TicketService.TOTAL_SEAT_NUMBER);
 
 	/**
 	 * Initialize the DAO with 200 available seats and an empty seat order table
@@ -29,7 +31,7 @@ public class SeatDAO {
 	
 	public static void initialize() {
 		seatTableIndex.clear();
-		for (int i = 0; i < 200; i++) {
+		for (int i = 0; i < TicketService.TOTAL_SEAT_NUMBER; i++) {
 			seatTableIndex.add(i);
 		}
 	}

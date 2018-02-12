@@ -45,14 +45,14 @@ public class TicketServiceImpl implements TicketService{
 		if (null == sh) {
 			throw new SeatServiceException("SeatHold does not exist.");
 		}
-		if (sh.getStatus() == SeatStatus.R) {
+		if (sh.getStatus().equals(SeatStatus.R)) {
 			throw new SeatServiceException("SeatHold already reserved.");
 		}
-		if (sh.getCustomerEmail() != customerEmail) {
+		if (!sh.getCustomerEmail().equals(customerEmail)) {
 			throw new SeatServiceException("SeatHold is held by another customer.");
 		}
 		
-		sh.setStatus(SeatStatus.H);
+		sh.setStatus(SeatStatus.R);
 		seatHoldDAO.saveSeatHold(sh);
 		return sh.getSeatHoldID().toString();
 	}
