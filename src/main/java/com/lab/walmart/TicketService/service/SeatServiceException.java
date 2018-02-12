@@ -1,4 +1,4 @@
-package com.lab.walmart.TicketService.DAO;
+package com.lab.walmart.TicketService.service;
 
 public class SeatServiceException extends RuntimeException {
 

@@ -4,16 +4,11 @@ import java.util.List;
 
 import com.lab.walmart.TicketService.DAO.SeatDAO;
 import com.lab.walmart.TicketService.DAO.SeatHoldDAO;
-import com.lab.walmart.TicketService.DAO.SeatServiceException;
 import com.lab.walmart.TicketService.model.SeatHold;
 import com.lab.walmart.TicketService.model.SeatStatus;
 
 public class TicketServiceImpl implements TicketService{
-	
-	/**
-	 * 
-	 */
-	public final static Integer TOTAL_SEAT_NUMBER = 200; 
+	 
 	
 	/**
 	 * In real life, the DAO layer will be injected into service
@@ -64,8 +59,8 @@ public class TicketServiceImpl implements TicketService{
 
 	@Override
 	public void initialize() {
-		seatDAO.initialize();
-		seatHoldDAO.initialize();
+		SeatDAO.initialize();
+		SeatHoldDAO.initialize();
 	}
 
 }
